@@ -2,7 +2,7 @@ CFLAGS := -march=i8086 -mcmodel=tiny -nostdlib -ffreestanding -fno-builtin -ffun
 LDFLAGS := -T link.ld --gc-sections
 
 PROS_DIR := ../x16-PRos
-PROS_BFLAGS := -dtm -no-kernel-recomp -no-boot-recomp -no-programs-recomp -quiet
+PROS_BFLAGS := -dtm -no-programs-recomp -no-music -no-txt -quiet
 
 all: prasm
 

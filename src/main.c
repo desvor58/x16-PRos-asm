@@ -85,7 +85,7 @@ void main()
     // }
 
     assembler_init();
-    char *text = "ret";
+    char *text = "ret\nret";
     assembly_err_t asm_err = assembly_text(outbuf, text, strlen(text));
 
     switch (asm_err) {
