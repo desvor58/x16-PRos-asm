@@ -20,7 +20,7 @@ def human_format(num):
     while abs(num) >= 1024:
         magnitude += 1
         num //= 1024
-    return f'{num}{['', 'K', 'M', 'B', 'T'][magnitude]}'
+    return f'{num}{['', 'K', 'M', 'G'][magnitude]}'
 
 with open(elf_file, "rb") as f:
     elf = ELFFile(f)

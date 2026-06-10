@@ -14,7 +14,7 @@ run: deploy
 
 deploy: prasm
 	cp bin/prasm.ple $(PROS_DIR)
-	
+
 
 prasm: main prstd assembler
 	ia16-elf-ld $(LDFLAGS) obj/prstdS.o obj/prstdC.o obj/main.o obj/assembler.o -o bin/prasm.elf
@@ -27,9 +27,14 @@ prstd:
 	nasm src/prstd.s -f elf -o obj/prstdS.o
 	ia16-elf-gcc $(CFLAGS) -c src/prstd.c -o obj/prstdC.o
 
+	mkdir -p lib/prstd
+	ar rcs lib/prstd/libprstd.a obj/prstdC.o obj/prstdS.o
+
 assembler: prstd
 	ia16-elf-gcc $(CFLAGS) -c src/assembler.c -o obj/assembler.o
 
+	mkdir -p lib/asm
+	ar rcs lib/asm/libprstd.a obj/assembler.o
 
 .PHONY: clear
 clear:
