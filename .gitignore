@@ -1,0 +1,8 @@
+*.elf
+*.ple
+*.bin
+test.*
+test
+.vscode/
+bin/
+obj/
