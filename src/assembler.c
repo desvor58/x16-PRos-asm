@@ -47,10 +47,12 @@ assembly_err_t assembly_text(u8 __far *_outbuf, char __far *_text, size_t _text_
 
         instr_info_t __far *instr_info = instr_infos;
         while (instr_info->mnemonic) {
-            if (far_strcmp(instr_info->mnemonic, mnemonic)) {
+            if (!far_strcmp(instr_info->mnemonic, mnemonic)) {
                 assembly_err_t err = instr_info->handler();
                 if (err) return err;
+                break;
             }
+            instr_info++;
         }
     }
     

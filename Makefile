@@ -13,7 +13,7 @@ run: deploy
 	./run-linux.sh
 
 deploy: prasm
-	cp prasm.ple $(PROS_DIR)
+	cp bin/prasm.ple $(PROS_DIR)
 	
 
 prasm: main prstd assembler
